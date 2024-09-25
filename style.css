@@ -1,0 +1,108 @@
+/* Reset de estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Contenedor principal que ocupa toda la pantalla */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f0f0f0; /* Fondo para mejor visualización */
+}
+
+/* Contenedor de texto central */
+.text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    text-align: center;
+    z-index: 100; /* Asegura que el texto esté encima */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    display: none; /* Oculto inicialmente */
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.3);
+    cursor: pointer; /* Indica que es clicable para reset */
+}
+
+/* Estilos básicos para todos los bloques */
+.block {
+    position: absolute;
+    width: 60%;
+    height: 100px;
+    left: 20%;
+    background-color: #f47d30;
+    border-radius: 10px;
+    transition: all 0.5s ease; /* Transición suave */
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border: 4px solid transparent; /* Borde inicial */
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+/* Colores y z-index específicos para cada bloque */
+.block1 { background-color: #f47d30; z-index: 5; }
+.block2 { background-color: #2fa7df; z-index: 4; }
+.block3 { background-color: #E31937; z-index: 3; }
+.block4 { background-color: #2fa7df; z-index: 2; }
+.block5 { background-color: #404040; z-index: 1; }
+
+/* Estilo para el bloque activo (en la parte superior) */
+.active {
+    top: 10%;
+    opacity: 1;
+    border: 4px solid #ffffff; /* Borde visible */
+    z-index: 10 !important; /* Supera a todos */
+    transform: translateY(0); /* Quita la traslación */
+}
+
+/* Estilo para los bloques apilados */
+.stack {
+    opacity: 0.8;
+    border: 4px solid #ffffff; /* Borde más grueso */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* top es manejado dinámicamente por JS */
+    transform: translateY(-50%); /* Mantiene la traslación */
+}
+
+/* Posiciones fijas para apilados basados en data-index */
+.stack1 { top: 60%; }
+.stack2 { top: 65%; }
+.stack3 { top: 70%; }
+.stack4 { top: 75%; }
+.stack5 { top: 80%; }
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .block {
+        width: 80%;
+        height: 80px;
+        font-size: 1rem;
+        left: 10%;
+    }
+
+    .text-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .stack1 { top: 55%; }
+    .stack2 { top: 60%; }
+    .stack3 { top: 65%; }
+    .stack4 { top: 70%; }
+    .stack5 { top: 75%; }
+}
